@@ -24,7 +24,70 @@ abstract class AbstractClass
         public void GetBill(double hours) {
             Console.WriteLine(hours*ratePDay*Beds);
         }
+
+        //add this class
+        public void calculateAmount(double salary)
+        {
+            Console.WriteLine(amount * salary);
+        }
 }
+
+//tax
+/*
+public abstract  class AbstractClass
+{
+   protected double amount;
+   public abstract void getAmount();
+
+  
+}
+*/
+
+class Slap1 : AbstractClass
+{
+    public override void getAmount()
+    {
+        this.amount = 0.05;
+    }
+}
+
+class Slap2 : AbstractClass
+{
+    public override void getAmount()
+    {
+
+        this.amount = 0.10;
+    }
+}
+
+class Slap3 : AbstractClass
+{
+    public override void getAmount()
+    {
+
+        this.amount = 0.15;
+    }
+}
+
+class Slap4 : AbstractClass
+{
+    public override void getAmount()
+    {
+
+        this.amount = 0.20;
+    }
+}
+class Slap5 : AbstractClass
+{
+    public override void getAmount()
+    {
+
+        this.amount = 0.25;
+    }
+}
+//tax
+
+
 class DoubleBedRoom : AbstractClass
     {
         
