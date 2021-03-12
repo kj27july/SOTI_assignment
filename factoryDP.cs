@@ -6,7 +6,8 @@ public class FactoryDP
 	{
         switch (type)
         {
-            case "Tax": return new Tax();
+            case "Vehicle": return new VehicleClass();
+            case "": return new Tax();
                 break;
         }
 	}
@@ -16,69 +17,137 @@ abstract class AbstractClass
 {
     protected double amount = 0;
     public abstract getAmount();
+	protected int Beds;
+        protected double ratePDay;
+        public abstract void GetRate();
 
-     //add this class(this belongs to Tax)
-        public void calculateAmount(double salary)
-        {
-            Console.WriteLine(amount*salary);
+        public void GetBill(double hours) {
+            Console.WriteLine(hours*ratePDay*Beds);
         }
-}
-
-
- /*
-    public abstract  class AbstractClass
-    {
-        protected double amount;
-        public abstract void getAmount();
 
         //add this class
         public void calculateAmount(double salary)
         {
-            Console.WriteLine(amount*salary);
+            Console.WriteLine(amount * salary);
         }
-    }
-    */
-   
-    class Slap1 : AbstractClass
+}
+
+//tax
+/*
+public abstract  class AbstractClass
+{
+   protected double amount;
+   public abstract void getAmount();
+
+  
+}
+*/
+
+class Slap1 : AbstractClass
+{
+    public override void getAmount()
     {
-        public override void getAmount()
+        this.amount = 0.05;
+    }
+}
+
+class Slap2 : AbstractClass
+{
+    public override void getAmount()
+    {
+
+        this.amount = 0.10;
+    }
+}
+
+class Slap3 : AbstractClass
+{
+    public override void getAmount()
+    {
+
+        this.amount = 0.15;
+    }
+}
+
+class Slap4 : AbstractClass
+{
+    public override void getAmount()
+    {
+
+        this.amount = 0.20;
+    }
+}
+class Slap5 : AbstractClass
+{
+    public override void getAmount()
+    {
+
+        this.amount = 0.25;
+    }
+}
+//tax
+
+
+class DoubleBedRoom : AbstractClass
+    {
+        
+        public override void GetRate() {
+            ratePDay = 1000;
+            Beds = 2;
+        }
+
+        
+    }
+
+    class SingleBedRoom : AbstractClass
+    {
+        public override void GetRate()
         {
-            this.amount = 0.05;
+            ratePDay = 800;
+            Beds = 1;
         }
     }
 
-    class Slap2 : AbstractClass
+    class TripleBedRoom : AbstractClass
     {
-        public override void getAmount()
+        public override void GetRate()
         {
-           
-            this.amount = 0.10;
+            ratePDay = 1100;
+            Beds = 3;
         }
     }
 
-    class Slap3 : AbstractClass
+    class GetRoomFactory
     {
-        public override void getAmount()
-        {
-           
-            this.amount = 0.15;
+        public AbstractClass GetRoom(string RoomType) {
+            switch (RoomType) {
+                case "SINGLE":
+                    return new SingleBedRoom();
+                case "DOUBLE":
+                    return new DoubleBedRoom();
+                case "TRIPLE":
+                    return new TripleBedRoom();
+                default:
+                    return null;
+            }
         }
+
     }
 
-    class Slap4 : AbstractClass
+class VehicleClass : AbstractClass
+{
+    public double amount = 50;
+    public double getAmount()
     {
-        public override void getAmount()
-        {
-           
-            this.amount = 0.20;
-        }
+        return amount;
     }
-    class Slap5 : AbstractClass
-    {
-        public override void getAmount()
-        {
-          
-            this.amount = 0.25;
-        }
-    }
+}
 
+class Jeep : VehicleClass
+{
+    public double amount = 100;
+}
+class Ambassador : VehicleClass
+{
+    public double amount = 110;
+}
