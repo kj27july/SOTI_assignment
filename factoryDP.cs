@@ -27,3 +27,12 @@ class VehicleClass : AbstractClass
         return amount;
     }
 }
+
+class Jeep : VehicleClass
+{
+    public double amount = 100;
+}
+class Ambassador : VehicleClass
+{
+    public double amount = 110;
+}
