@@ -6,7 +6,8 @@ public class FactoryDP
 	{
         switch (type)
         {
-            case "Tax": return new Tax();
+            case "Vehicle": return new VehicleClass();
+            case "": return new Tax();
                 break;
         }
 	}
@@ -70,3 +71,20 @@ class DoubleBedRoom : AbstractClass
 
     }
 
+class VehicleClass : AbstractClass
+{
+    public double amount = 50;
+    public double getAmount()
+    {
+        return amount;
+    }
+}
+
+class Jeep : VehicleClass
+{
+    public double amount = 100;
+}
+class Ambassador : VehicleClass
+{
+    public double amount = 110;
+}
