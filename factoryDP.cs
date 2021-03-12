@@ -87,7 +87,6 @@ class Slap5 : AbstractClass
 }
 //tax
 
-
 class DoubleBedRoom : AbstractClass
     {
         
@@ -116,8 +115,7 @@ class DoubleBedRoom : AbstractClass
             Beds = 3;
         }
     }
-
-    class GetRoomFactory
+class GetRoomFactory
     {
         public AbstractClass GetRoom(string RoomType) {
             switch (RoomType) {
